@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    
+    <title>Watch Movies</title>
+    <style>
+        body {
+            background-color: rgb(8, 16, 22);
+            height: 100vh;
+            margin: 0;
+        }
+        .selctor {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .movie-button {
+            background-color: rgb(121, 82, 179);
+            color: white;
+            border: none;
+            border-radius: 2px;
+            height: 40px;
+            width: 100px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        .tvshow-button {
+            background-color: white;
+            color: rgb(108, 117, 125);
+            border-style: solid;
+            border-color: rgb(108, 117, 125);
+            border-width: 1px;
+            border-radius: 2px;
+            height: 40px;
+            width: 100px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .container {
+            text-align: center;
+        }
+        .frame {
+            height: 400px;
+            width: 800px;
+            border: 2px solid rgb(46, 164, 79);
+            border-radius: 40px;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        .watch-button {
+            background-color: rgb(46, 164, 79);
+            color: white;
+            border: none;
+            height: 30px;
+            width: 80px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            
+        }
+        .id-field {
+            background-color:aliceblue;
+            color: black;
+            height: 28px;
+            width: 300px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 20px;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 5%;
+            
+        }
+        .hn-movies {
+            color: white;
+            text-align: center;
+            font-family: Arial;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <img src="assets/logo.png" alt="logo of website">
+    <p class="hn-movies">FN-Movies</p>
+
+    <div class="selctor">
+        <a href="index.html"><button class="movie-button">Movies</button></a>
+        <a href="tvshow.html"><button class="tvshow-button">Tvshow</button></a>
+    </div>
+    <div class="container">
+
+        <div class="input-container">
+            <input class="id-field" type="text" id="imbd-id" placeholder="Enter Imdb ID">
+            <button class="watch-button" onclick="updateIframeSrc()">Watch</button>
+        </div>
+
+        <iframe allowfullscreen scrolling="no" src="" class="frame"></iframe>    
+
+    </div>
+
+       <script>
+        function updateIframeSrc() {
+            const url = document.getElementById('imbd-id').value;
+            const iframe = document.querySelector('.frame');
+            iframe.src = "https://vidsrc.dev/embed/movie/" + url;
+        }
+    </script>
+</body>
+</html>
